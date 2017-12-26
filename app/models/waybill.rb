@@ -17,7 +17,7 @@ class Waybill < ApplicationRecord
       event :reject, transitions_to: :rejected
     end
     state :accepted do
-      event :yiqu, transitions_to: :finished
+      event :finish, transitions_to: :finished
       event :reject, transitions_to: :reject
     end
     state :rejected

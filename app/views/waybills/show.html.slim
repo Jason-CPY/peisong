@@ -32,11 +32,12 @@ br
             td width='13%' 支付状态
             td width='20%' 
               = @waybill.order.voucher.status ? '待支付' : '已支付' if voucher
-  - if @waybill.new?
-    = link_to '接单', accept_waybill_path(@waybill), method: :put, class: 'btn btn-info btn-sm'
-    = link_to '拒单', reject_waybill_path(@waybill), method: :put, class: 'btn btn-info btn-sm'
-  - elsif @waybill.accepted?
-    = link_to '已取', yiqu_waybill_path(@waybill), method: :put, class: 'btn btn-info btn-sm'
+      .panel-footer
+        - if @waybill.new?
+          = link_to '接单', accept_waybill_path(@waybill), method: :put, class: 'btn btn-info btn-sm'
+          = link_to '拒单', reject_waybill_path(@waybill), method: :put, class: 'btn btn-info btn-sm'
+        - elsif @waybill.accepted?
+          = link_to '已取', yiqu_waybill_path(@waybill), method: :put, class: 'btn btn-info btn-sm'
   
 
 .clear

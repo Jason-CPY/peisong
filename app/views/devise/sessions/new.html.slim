@@ -1,10 +1,52 @@
-h2
-  | Log in
+<body class="login">
+<div class="login-form" style="margin-top: 10%">
+/h1
+  /| Log in
 = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .form-inputs
+  .form-inputs style="padding-top:10px"
+    h2 style="float: left;margin-left: 27%;color: #9199aa;width=100%"
+     | Fetch-client
     = f.input :email, required: false, autofocus: true
     = f.input :password, required: false
     = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+  <a href="/couriers/password/new" style="float: right;margin-right: 5%">Forgot your password?</a>
   .form-actions
     = f.button :submit, "Log in"
-= render "devise/shared/links"
+  <label class="info">Don't have an account?</label><a href="/couriers/sign_up">Sign up</a><br><br>
+/= render "devise/shared/links"
+</div>
+</body>
+<!-- <body class="login">
+<div class="container" id="container" class="login">
+
+	<div class="login-form" style="margin-top: 10%">
+		<form novalidate="novalidate" class="simple_form new_courier" id="new_courier" action="/couriers/sign_in" accept-charset="UTF-8" method="post">
+			<input name="utf8" type="hidden" value="✓">
+			<input type="hidden" name="authenticity_token" value="CQakTGAOVmcKlS5l1hG0ViNTgAC8DazDNKDs24u572hKReaA7g16QQsx5fpVRGnyYMxrxd8TXgRNMN2Cw0PdHQ==">
+			<div class="form-inputs" style="padding-top:10px">
+				<div class="form-group email optional courier_email"">
+					<h2 style="float: left;margin-left: 27%;color: #9199aa;padding-bottom: 15px;">Fetch-client</h2>
+					<input class="form-control string email optional" autofocus="autofocus" type="email" value="" name="courier[email]" id="courier_email" style="margin-left: 5%;padding-top: 0px;padding-bottom: 0px">
+				</div>
+				<div class="form-group password optional courier_password">
+					<label class="control-label password optional" for="courier_password">Password</label>
+					<input class="form-control password optional" type="password" name="courier[password]" id="courier_password" style="padding-bottom: 0px;padding-top: 0.1px">
+				</div>
+				<div class="form-group boolean optional courier_remember_me">
+					<div class="checkbox">
+						<input value="0" type="hidden" name="courier[remember_me]">
+						<label class="boolean optional" for="courier_remember_me" style="color: #C0C0C0;font-size: 14px;float: left;margin-left: 5%; ">
+							<input class="boolean optional" type="checkbox" value="1" name="courier[remember_me]" id="courier_remember_me">Remember me
+						</label>
+					</div>
+				</div>
+			</div>
+			<a href="/couriers/password/new" style="float: right;margin-right: 5%">Forgot your password?</a>
+			<div class="form-actions">
+				<input type="submit" name="commit" value="Log in" class="btn btn-default" data-disable-with="Log in">
+			</div>
+			<label class="info">Don't have an account?</label><a href="/couriers/sign_up">Sign up</a><br><br>
+		</form>
+	</div>
+</div>
+</body>  -->

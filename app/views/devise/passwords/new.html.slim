@@ -1,9 +1,32 @@
-h2
-  | Forgot your password?
-= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-  = f.error_notification
-  .form-inputs
-    = f.input :email, required: true, autofocus: true
-  .form-actions
-    = f.button :submit, "Send me reset password instructions"
-= render "devise/shared/links"
+/h2
+  /| Forgot your password?
+/= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+  /= f.error_notification
+  /.form-inputs
+  / = f.input :email, required: true, autofocus: true
+  /.form-actions
+  /  = f.button :submit, "Send me reset password instructions"
+/= render "devise/shared/links"
+
+<body class="login">
+	<div class="container" id="container">
+		<h1>Forgot password?</h1>
+		<div class="login-form" style="padding-bottom: 2em;">
+			<form novalidate="novalidate" class="simple_form new_courier" id="new_courier" action="/couriers/password" accept-charset="UTF-8" method="post">
+				<input name="utf8" type="hidden" value="✓">
+				<input type="hidden" name="authenticity_token" value="4uiEakL6MbAdkUlaLVZlRapAB1zPthW3p6uOrOTSLZShq8amzPkdlhw1gsWuA7jh6d/smayo53DeO7/1rCgf4Q==">
+				<div class="form-inputs">
+					<div class="form-group email required courier_email">
+						<!-- <label class="control-label email required" for="courier_email" ><abbr title="required" >*</abbr>  --><h2 style="color: #C0C0C0;padding: 0 auto;float: left;margin-left: 38%;">Email</h2><!-- </label> -->
+						<input class="form-control string email optional" autofocus="autofocus" required="required" aria-required="true" type="email" value="" name="courier[email]" id="courier_email" style="margin-left: 5%;padding-top: 0px;padding-bottom: 0px">
+					</div>
+				</div>
+				<div class="form-actions">
+					<input type="submit" name="commit" value="Reset password" class="btn btn-default" data-disable-with="Reset password" style="margin:5% auto;">
+				</div>
+			</form>
+			<a href="/couriers/sign_in" style="font-size: 18px; float: left; margin-left: 30%;display: inline;">Log in</a>
+			<a href="/couriers/sign_up" style="float: right;margin-right: 30%;font-size: 18px;display: inline-block;">Sign up</a><br>
+		</div>
+	</div>
+</body>

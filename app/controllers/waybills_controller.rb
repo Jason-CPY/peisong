@@ -43,7 +43,7 @@ class WaybillsController < ApplicationController
 
   def yiqu
     respond_to do |format|
-      if @waybill.yiqu!
+      if @waybill.yiqu
         format.html { redirect_to :back, notice: '取件成功.' }
       else
         format.html { redirect_to :back, alert: "取件失败. #{@waybill.errors}" }
